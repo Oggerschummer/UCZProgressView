@@ -334,9 +334,9 @@
 #pragma mark -
 
 - (void)layoutTextLabel {
-    self.textLabel.hidden = !self.showsText || self.indeterminate;
+    self.textLabel.hidden= !self.showsText ;//Oggerschummer|| self.indeterminate;
     
-    if (!self.textLabel.hidden) {
+    if ((!self.textLabel.hidden) | YES){
         self.textLabel.textColor = self.textColor ?: self.tintColor;
         
         if (self.textSize > 0.0) {
@@ -345,7 +345,10 @@
         
         [self.textLabel sizeToFit];
         self.textLabel.center = self.backgroundView.center;
+        [self.backgroundView bringSubviewToFront:self.textLabel];//Oggerschummer
     }
 }
+
+
 
 @end
